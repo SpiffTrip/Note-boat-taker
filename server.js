@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const express = require("express");
-const notes = require("./Develop/db/db.json");
+const notes = require("./db/db.json");
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +15,7 @@ function addNewNote(body, notesArr) {
     note.id = Math.floor(Math.random() * 999);
     notesArr.push(note);
     fs.writeFileSync(
-        path.join(__dirname, "./Develop/db/db.json"),
+        path.join(__dirname, "./db/db.json"),
         JSON.stringify(notesArr)
     );
     return note;
@@ -27,7 +27,7 @@ function writeNote(noteObj) {
 
 const notesArr = function () {
     fs.readFileSync(
-        path.join(__dirname, "/Develop/db/db.json"),
+        path.join(__dirname, "./db/db.json"),
         "utf-8",
         function (error, data) {
             console.log(data);
@@ -39,7 +39,7 @@ const newArr = notesArr.filter((item) => {
     return item.id != noteObj;
 });
 fs.writeFileSync(
-    path.join(__dirname, "/Develop/db/db.json"),
+    path.join(__dirname, "./db/db.json"),
     JSON.stringify(newArr)
 );
 }
@@ -49,7 +49,7 @@ fs.writeFileSync(
 app.get("/api/notes", (req, res) => {
     let response = notes;
     fs.readFileSync(
-        path.join(__dirname, "./Develop/db/db.json"),
+        path.join(__dirname, "./db/db.json"),
         "utf-8",
         function (error, data) {
             console.log(data);
@@ -75,13 +75,13 @@ app.post("/api/notes", (req, res) => {
 
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 app.get("/notes", (req, res) => {
-    res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 app.listen(PORT, () => {
     console.log("Server active");
