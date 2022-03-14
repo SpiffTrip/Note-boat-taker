@@ -22,6 +22,29 @@ function addNewNote(body, notesArr) {
 }
 
 
+function writeNote(noteObj) {
+
+
+const notesArr = function () {
+    fs.readFileSync(
+        path.join(__dirname, "/Develop/db/db.json"),
+        "utf-8",
+        function (error, data) {
+            console.log(data);
+            return data;
+        }
+    );
+};
+const newArr = notesArr.filter((item) => {
+    return item.id != noteObj;
+});
+fs.writeFileSync(
+    path.join(__dirname, "/Develop/db/db.json"),
+    JSON.stringify(newArr)
+);
+}
+
+
 
 app.get("/api/notes", (req, res) => {
     let response = notes;
