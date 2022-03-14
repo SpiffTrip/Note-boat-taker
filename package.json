@@ -1,5 +1,5 @@
 {
-  "name": "Note-boat-taker",
+  "name": "note-boat-taker",
   "version": "1.0.0",
   "description": "as a small buisness owner",
   "main": "server.js",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SpiffTrip/Note-boat-taker.git"
+    "url": "https://github.com/SpiffTrip/Note-boat-taker.git"
   },
 
   "homepage": "",
