@@ -13,7 +13,8 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 ## Deployed APP (not working)
 https://note-boat-taker.herokuapp.com/
 
-##screenshot
+## screenshot
+
 ![note boat taker homepage]
 (https://user-images.githubusercontent.com/95441222/158095466-35ce048d-d978-4e71-9503-4f539adf3747.PNG)
 
